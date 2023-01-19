@@ -9,9 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Configuration } from './configuration';
-import { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { RequestArgs, BaseAPI } from './base';
+/// <reference types="node" />
+import { Configuration } from "./configuration";
+import { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
+import { RequestArgs, BaseAPI } from "./base";
+import { ReadStream } from "fs";
 /**
  *
  * @export
@@ -23,109 +25,109 @@ export interface CreateAnswerRequest {
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'model': string;
+    model: string;
     /**
      * Question to get answered.
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'question': string;
+    question: string;
     /**
      * List of (question, answer) pairs that will help steer the model towards the tone and answer format you\'d like. We recommend adding 2 to 3 examples.
      * @type {Array<any>}
      * @memberof CreateAnswerRequest
      */
-    'examples': Array<any>;
+    examples: Array<any>;
     /**
      * A text snippet containing the contextual information used to generate the answers for the `examples` you provide.
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'examples_context': string;
+    examples_context: string;
     /**
      * List of documents from which the answer for the input `question` should be derived. If this is an empty list, the question will be answered based on the question-answer examples.  You should specify either `documents` or a `file`, but not both.
      * @type {Array<string>}
      * @memberof CreateAnswerRequest
      */
-    'documents'?: Array<string> | null;
+    documents?: Array<string> | null;
     /**
      * The ID of an uploaded file that contains documents to search over. See [upload file](/docs/api-reference/files/upload) for how to upload a file of the desired format and purpose.  You should specify either `documents` or a `file`, but not both.
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'file'?: string | null;
+    file?: string | null;
     /**
      * ID of the model to use for [Search](/docs/api-reference/searches/create). You can select one of `ada`, `babbage`, `curie`, or `davinci`.
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'search_model'?: string | null;
+    search_model?: string | null;
     /**
      * The maximum number of documents to be ranked by [Search](/docs/api-reference/searches/create) when using `file`. Setting it to a higher value leads to improved accuracy but with increased latency and cost.
      * @type {number}
      * @memberof CreateAnswerRequest
      */
-    'max_rerank'?: number | null;
+    max_rerank?: number | null;
     /**
      * What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277) to use. Higher values mean the model will take more risks and value 0 (argmax sampling) works better for scenarios with a well-defined answer.
      * @type {number}
      * @memberof CreateAnswerRequest
      */
-    'temperature'?: number | null;
+    temperature?: number | null;
     /**
      * Include the log probabilities on the `logprobs` most likely tokens, as well the chosen tokens. For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The API will always return the `logprob` of the sampled token, so there may be up to `logprobs+1` elements in the response.  The maximum value for `logprobs` is 5. If you need more than this, please contact us through our [Help center](https://help.openai.com) and describe your use case.  When `logprobs` is set, `completion` will be automatically added into `expand` to get the logprobs.
      * @type {number}
      * @memberof CreateAnswerRequest
      */
-    'logprobs'?: number | null;
+    logprobs?: number | null;
     /**
      * The maximum number of tokens allowed for the generated answer
      * @type {number}
      * @memberof CreateAnswerRequest
      */
-    'max_tokens'?: number | null;
+    max_tokens?: number | null;
     /**
      *
      * @type {CreateAnswerRequestStop}
      * @memberof CreateAnswerRequest
      */
-    'stop'?: CreateAnswerRequestStop | null;
+    stop?: CreateAnswerRequestStop | null;
     /**
      * How many answers to generate for each question.
      * @type {number}
      * @memberof CreateAnswerRequest
      */
-    'n'?: number | null;
+    n?: number | null;
     /**
      * Modify the likelihood of specified tokens appearing in the completion.  Accepts a json object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.  As an example, you can pass `{\"50256\": -100}` to prevent the <|endoftext|> token from being generated.
      * @type {object}
      * @memberof CreateAnswerRequest
      */
-    'logit_bias'?: object | null;
+    logit_bias?: object | null;
     /**
      * A special boolean flag for showing metadata. If set to `true`, each document entry in the returned JSON will contain a \"metadata\" field.  This flag only takes effect when `file` is set.
      * @type {boolean}
      * @memberof CreateAnswerRequest
      */
-    'return_metadata'?: boolean | null;
+    return_metadata?: boolean | null;
     /**
      * If set to `true`, the returned JSON will include a \"prompt\" field containing the final prompt that was used to request a completion. This is mainly useful for debugging purposes.
      * @type {boolean}
      * @memberof CreateAnswerRequest
      */
-    'return_prompt'?: boolean | null;
+    return_prompt?: boolean | null;
     /**
      * If an object name is in the list, we provide the full information of the object; otherwise, we only provide the object ID. Currently we support `completion` and `file` objects for expansion.
      * @type {Array<any>}
      * @memberof CreateAnswerRequest
      */
-    'expand'?: Array<any> | null;
+    expand?: Array<any> | null;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateAnswerRequest
      */
-    'user'?: string;
+    user?: string;
 }
 /**
  * @type CreateAnswerRequestStop
@@ -144,37 +146,37 @@ export interface CreateAnswerResponse {
      * @type {string}
      * @memberof CreateAnswerResponse
      */
-    'object'?: string;
+    object?: string;
     /**
      *
      * @type {string}
      * @memberof CreateAnswerResponse
      */
-    'model'?: string;
+    model?: string;
     /**
      *
      * @type {string}
      * @memberof CreateAnswerResponse
      */
-    'search_model'?: string;
+    search_model?: string;
     /**
      *
      * @type {string}
      * @memberof CreateAnswerResponse
      */
-    'completion'?: string;
+    completion?: string;
     /**
      *
      * @type {Array<string>}
      * @memberof CreateAnswerResponse
      */
-    'answers'?: Array<string>;
+    answers?: Array<string>;
     /**
      *
      * @type {Array<CreateAnswerResponseSelectedDocumentsInner>}
      * @memberof CreateAnswerResponse
      */
-    'selected_documents'?: Array<CreateAnswerResponseSelectedDocumentsInner>;
+    selected_documents?: Array<CreateAnswerResponseSelectedDocumentsInner>;
 }
 /**
  *
@@ -187,13 +189,13 @@ export interface CreateAnswerResponseSelectedDocumentsInner {
      * @type {number}
      * @memberof CreateAnswerResponseSelectedDocumentsInner
      */
-    'document'?: number;
+    document?: number;
     /**
      *
      * @type {string}
      * @memberof CreateAnswerResponseSelectedDocumentsInner
      */
-    'text'?: string;
+    text?: string;
 }
 /**
  *
@@ -206,85 +208,85 @@ export interface CreateClassificationRequest {
      * @type {string}
      * @memberof CreateClassificationRequest
      */
-    'model': string;
+    model: string;
     /**
      * Query to be classified.
      * @type {string}
      * @memberof CreateClassificationRequest
      */
-    'query': string;
+    query: string;
     /**
      * A list of examples with labels, in the following format:  `[[\"The movie is so interesting.\", \"Positive\"], [\"It is quite boring.\", \"Negative\"], ...]`  All the label strings will be normalized to be capitalized.  You should specify either `examples` or `file`, but not both.
      * @type {Array<any>}
      * @memberof CreateClassificationRequest
      */
-    'examples'?: Array<any> | null;
+    examples?: Array<any> | null;
     /**
      * The ID of the uploaded file that contains training examples. See [upload file](/docs/api-reference/files/upload) for how to upload a file of the desired format and purpose.  You should specify either `examples` or `file`, but not both.
      * @type {string}
      * @memberof CreateClassificationRequest
      */
-    'file'?: string | null;
+    file?: string | null;
     /**
      * The set of categories being classified. If not specified, candidate labels will be automatically collected from the examples you provide. All the label strings will be normalized to be capitalized.
      * @type {Array<string>}
      * @memberof CreateClassificationRequest
      */
-    'labels'?: Array<string> | null;
+    labels?: Array<string> | null;
     /**
      * ID of the model to use for [Search](/docs/api-reference/searches/create). You can select one of `ada`, `babbage`, `curie`, or `davinci`.
      * @type {string}
      * @memberof CreateClassificationRequest
      */
-    'search_model'?: string | null;
+    search_model?: string | null;
     /**
      * What sampling `temperature` to use. Higher values mean the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.
      * @type {number}
      * @memberof CreateClassificationRequest
      */
-    'temperature'?: number | null;
+    temperature?: number | null;
     /**
      * Include the log probabilities on the `logprobs` most likely tokens, as well the chosen tokens. For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The API will always return the `logprob` of the sampled token, so there may be up to `logprobs+1` elements in the response.  The maximum value for `logprobs` is 5. If you need more than this, please contact us through our [Help center](https://help.openai.com) and describe your use case.  When `logprobs` is set, `completion` will be automatically added into `expand` to get the logprobs.
      * @type {number}
      * @memberof CreateClassificationRequest
      */
-    'logprobs'?: number | null;
+    logprobs?: number | null;
     /**
      * The maximum number of examples to be ranked by [Search](/docs/api-reference/searches/create) when using `file`. Setting it to a higher value leads to improved accuracy but with increased latency and cost.
      * @type {number}
      * @memberof CreateClassificationRequest
      */
-    'max_examples'?: number | null;
+    max_examples?: number | null;
     /**
      * Modify the likelihood of specified tokens appearing in the completion.  Accepts a json object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.  As an example, you can pass `{\"50256\": -100}` to prevent the <|endoftext|> token from being generated.
      * @type {object}
      * @memberof CreateClassificationRequest
      */
-    'logit_bias'?: object | null;
+    logit_bias?: object | null;
     /**
      * If set to `true`, the returned JSON will include a \"prompt\" field containing the final prompt that was used to request a completion. This is mainly useful for debugging purposes.
      * @type {boolean}
      * @memberof CreateClassificationRequest
      */
-    'return_prompt'?: boolean | null;
+    return_prompt?: boolean | null;
     /**
      * A special boolean flag for showing metadata. If set to `true`, each document entry in the returned JSON will contain a \"metadata\" field.  This flag only takes effect when `file` is set.
      * @type {boolean}
      * @memberof CreateClassificationRequest
      */
-    'return_metadata'?: boolean | null;
+    return_metadata?: boolean | null;
     /**
      * If an object name is in the list, we provide the full information of the object; otherwise, we only provide the object ID. Currently we support `completion` and `file` objects for expansion.
      * @type {Array<any>}
      * @memberof CreateClassificationRequest
      */
-    'expand'?: Array<any> | null;
+    expand?: Array<any> | null;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateClassificationRequest
      */
-    'user'?: string;
+    user?: string;
 }
 /**
  *
@@ -297,37 +299,37 @@ export interface CreateClassificationResponse {
      * @type {string}
      * @memberof CreateClassificationResponse
      */
-    'object'?: string;
+    object?: string;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponse
      */
-    'model'?: string;
+    model?: string;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponse
      */
-    'search_model'?: string;
+    search_model?: string;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponse
      */
-    'completion'?: string;
+    completion?: string;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponse
      */
-    'label'?: string;
+    label?: string;
     /**
      *
      * @type {Array<CreateClassificationResponseSelectedExamplesInner>}
      * @memberof CreateClassificationResponse
      */
-    'selected_examples'?: Array<CreateClassificationResponseSelectedExamplesInner>;
+    selected_examples?: Array<CreateClassificationResponseSelectedExamplesInner>;
 }
 /**
  *
@@ -340,19 +342,19 @@ export interface CreateClassificationResponseSelectedExamplesInner {
      * @type {number}
      * @memberof CreateClassificationResponseSelectedExamplesInner
      */
-    'document'?: number;
+    document?: number;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponseSelectedExamplesInner
      */
-    'text'?: string;
+    text?: string;
     /**
      *
      * @type {string}
      * @memberof CreateClassificationResponseSelectedExamplesInner
      */
-    'label'?: string;
+    label?: string;
 }
 /**
  *
@@ -365,97 +367,97 @@ export interface CreateCompletionRequest {
      * @type {string}
      * @memberof CreateCompletionRequest
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {CreateCompletionRequestPrompt}
      * @memberof CreateCompletionRequest
      */
-    'prompt'?: CreateCompletionRequestPrompt | null;
+    prompt?: CreateCompletionRequestPrompt | null;
     /**
      * The suffix that comes after a completion of inserted text.
      * @type {string}
      * @memberof CreateCompletionRequest
      */
-    'suffix'?: string | null;
+    suffix?: string | null;
     /**
      * The maximum number of [tokens](/tokenizer) to generate in the completion.  The token count of your prompt plus `max_tokens` cannot exceed the model\'s context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'max_tokens'?: number | null;
+    max_tokens?: number | null;
     /**
      * What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277) to use. Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.  We generally recommend altering this or `top_p` but not both.
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'temperature'?: number | null;
+    temperature?: number | null;
     /**
      * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or `temperature` but not both.
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'top_p'?: number | null;
+    top_p?: number | null;
     /**
      * How many completions to generate for each prompt.  **Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for `max_tokens` and `stop`.
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'n'?: number | null;
+    n?: number | null;
     /**
      * Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message.
      * @type {boolean}
      * @memberof CreateCompletionRequest
      */
-    'stream'?: boolean | null;
+    stream?: boolean | null;
     /**
      * Include the log probabilities on the `logprobs` most likely tokens, as well the chosen tokens. For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The API will always return the `logprob` of the sampled token, so there may be up to `logprobs+1` elements in the response.  The maximum value for `logprobs` is 5. If you need more than this, please contact us through our [Help center](https://help.openai.com) and describe your use case.
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'logprobs'?: number | null;
+    logprobs?: number | null;
     /**
      * Echo back the prompt in addition to the completion
      * @type {boolean}
      * @memberof CreateCompletionRequest
      */
-    'echo'?: boolean | null;
+    echo?: boolean | null;
     /**
      *
      * @type {CreateCompletionRequestStop}
      * @memberof CreateCompletionRequest
      */
-    'stop'?: CreateCompletionRequestStop | null;
+    stop?: CreateCompletionRequestStop | null;
     /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model\'s likelihood to talk about new topics.  [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'presence_penalty'?: number | null;
+    presence_penalty?: number | null;
     /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model\'s likelihood to repeat the same line verbatim.  [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'frequency_penalty'?: number | null;
+    frequency_penalty?: number | null;
     /**
      * Generates `best_of` completions server-side and returns the \"best\" (the one with the highest log probability per token). Results cannot be streamed.  When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return – `best_of` must be greater than `n`.  **Note:** Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for `max_tokens` and `stop`.
      * @type {number}
      * @memberof CreateCompletionRequest
      */
-    'best_of'?: number | null;
+    best_of?: number | null;
     /**
      * Modify the likelihood of specified tokens appearing in the completion.  Accepts a json object that maps tokens (specified by their token ID in the GPT tokenizer) to an associated bias value from -100 to 100. You can use this [tokenizer tool](/tokenizer?view=bpe) (which works for both GPT-2 and GPT-3) to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.  As an example, you can pass `{\"50256\": -100}` to prevent the <|endoftext|> token from being generated.
      * @type {object}
      * @memberof CreateCompletionRequest
      */
-    'logit_bias'?: object | null;
+    logit_bias?: object | null;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateCompletionRequest
      */
-    'user'?: string;
+    user?: string;
 }
 /**
  * @type CreateCompletionRequestPrompt
@@ -480,37 +482,37 @@ export interface CreateCompletionResponse {
      * @type {string}
      * @memberof CreateCompletionResponse
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof CreateCompletionResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof CreateCompletionResponse
      */
-    'created': number;
+    created: number;
     /**
      *
      * @type {string}
      * @memberof CreateCompletionResponse
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {Array<CreateCompletionResponseChoicesInner>}
      * @memberof CreateCompletionResponse
      */
-    'choices': Array<CreateCompletionResponseChoicesInner>;
+    choices: Array<CreateCompletionResponseChoicesInner>;
     /**
      *
      * @type {CreateCompletionResponseUsage}
      * @memberof CreateCompletionResponse
      */
-    'usage'?: CreateCompletionResponseUsage;
+    usage?: CreateCompletionResponseUsage;
 }
 /**
  *
@@ -523,25 +525,25 @@ export interface CreateCompletionResponseChoicesInner {
      * @type {string}
      * @memberof CreateCompletionResponseChoicesInner
      */
-    'text'?: string;
+    text?: string;
     /**
      *
      * @type {number}
      * @memberof CreateCompletionResponseChoicesInner
      */
-    'index'?: number;
+    index?: number;
     /**
      *
      * @type {CreateCompletionResponseChoicesInnerLogprobs}
      * @memberof CreateCompletionResponseChoicesInner
      */
-    'logprobs'?: CreateCompletionResponseChoicesInnerLogprobs | null;
+    logprobs?: CreateCompletionResponseChoicesInnerLogprobs | null;
     /**
      *
      * @type {string}
      * @memberof CreateCompletionResponseChoicesInner
      */
-    'finish_reason'?: string;
+    finish_reason?: string;
 }
 /**
  *
@@ -554,25 +556,25 @@ export interface CreateCompletionResponseChoicesInnerLogprobs {
      * @type {Array<string>}
      * @memberof CreateCompletionResponseChoicesInnerLogprobs
      */
-    'tokens'?: Array<string>;
+    tokens?: Array<string>;
     /**
      *
      * @type {Array<number>}
      * @memberof CreateCompletionResponseChoicesInnerLogprobs
      */
-    'token_logprobs'?: Array<number>;
+    token_logprobs?: Array<number>;
     /**
      *
      * @type {Array<object>}
      * @memberof CreateCompletionResponseChoicesInnerLogprobs
      */
-    'top_logprobs'?: Array<object>;
+    top_logprobs?: Array<object>;
     /**
      *
      * @type {Array<number>}
      * @memberof CreateCompletionResponseChoicesInnerLogprobs
      */
-    'text_offset'?: Array<number>;
+    text_offset?: Array<number>;
 }
 /**
  *
@@ -585,19 +587,19 @@ export interface CreateCompletionResponseUsage {
      * @type {number}
      * @memberof CreateCompletionResponseUsage
      */
-    'prompt_tokens': number;
+    prompt_tokens: number;
     /**
      *
      * @type {number}
      * @memberof CreateCompletionResponseUsage
      */
-    'completion_tokens': number;
+    completion_tokens: number;
     /**
      *
      * @type {number}
      * @memberof CreateCompletionResponseUsage
      */
-    'total_tokens': number;
+    total_tokens: number;
 }
 /**
  *
@@ -610,37 +612,37 @@ export interface CreateEditRequest {
      * @type {string}
      * @memberof CreateEditRequest
      */
-    'model': string;
+    model: string;
     /**
      * The input text to use as a starting point for the edit.
      * @type {string}
      * @memberof CreateEditRequest
      */
-    'input'?: string | null;
+    input?: string | null;
     /**
      * The instruction that tells the model how to edit the prompt.
      * @type {string}
      * @memberof CreateEditRequest
      */
-    'instruction': string;
+    instruction: string;
     /**
      * How many edits to generate for the input and instruction.
      * @type {number}
      * @memberof CreateEditRequest
      */
-    'n'?: number | null;
+    n?: number | null;
     /**
      * What [sampling temperature](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277) to use. Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer.  We generally recommend altering this or `top_p` but not both.
      * @type {number}
      * @memberof CreateEditRequest
      */
-    'temperature'?: number | null;
+    temperature?: number | null;
     /**
      * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or `temperature` but not both.
      * @type {number}
      * @memberof CreateEditRequest
      */
-    'top_p'?: number | null;
+    top_p?: number | null;
 }
 /**
  *
@@ -653,37 +655,37 @@ export interface CreateEditResponse {
      * @type {string}
      * @memberof CreateEditResponse
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof CreateEditResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof CreateEditResponse
      */
-    'created': number;
+    created: number;
     /**
      *
      * @type {string}
      * @memberof CreateEditResponse
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {Array<CreateCompletionResponseChoicesInner>}
      * @memberof CreateEditResponse
      */
-    'choices': Array<CreateCompletionResponseChoicesInner>;
+    choices: Array<CreateCompletionResponseChoicesInner>;
     /**
      *
      * @type {CreateCompletionResponseUsage}
      * @memberof CreateEditResponse
      */
-    'usage': CreateCompletionResponseUsage;
+    usage: CreateCompletionResponseUsage;
 }
 /**
  *
@@ -696,19 +698,19 @@ export interface CreateEmbeddingRequest {
      * @type {string}
      * @memberof CreateEmbeddingRequest
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {CreateEmbeddingRequestInput}
      * @memberof CreateEmbeddingRequest
      */
-    'input': CreateEmbeddingRequestInput;
+    input: CreateEmbeddingRequestInput;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateEmbeddingRequest
      */
-    'user'?: string;
+    user?: string;
 }
 /**
  * @type CreateEmbeddingRequestInput
@@ -727,25 +729,25 @@ export interface CreateEmbeddingResponse {
      * @type {string}
      * @memberof CreateEmbeddingResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {string}
      * @memberof CreateEmbeddingResponse
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {Array<CreateEmbeddingResponseDataInner>}
      * @memberof CreateEmbeddingResponse
      */
-    'data': Array<CreateEmbeddingResponseDataInner>;
+    data: Array<CreateEmbeddingResponseDataInner>;
     /**
      *
      * @type {CreateEmbeddingResponseUsage}
      * @memberof CreateEmbeddingResponse
      */
-    'usage': CreateEmbeddingResponseUsage;
+    usage: CreateEmbeddingResponseUsage;
 }
 /**
  *
@@ -758,19 +760,19 @@ export interface CreateEmbeddingResponseDataInner {
      * @type {number}
      * @memberof CreateEmbeddingResponseDataInner
      */
-    'index': number;
+    index: number;
     /**
      *
      * @type {string}
      * @memberof CreateEmbeddingResponseDataInner
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<number>}
      * @memberof CreateEmbeddingResponseDataInner
      */
-    'embedding': Array<number>;
+    embedding: Array<number>;
 }
 /**
  *
@@ -783,13 +785,13 @@ export interface CreateEmbeddingResponseUsage {
      * @type {number}
      * @memberof CreateEmbeddingResponseUsage
      */
-    'prompt_tokens': number;
+    prompt_tokens: number;
     /**
      *
      * @type {number}
      * @memberof CreateEmbeddingResponseUsage
      */
-    'total_tokens': number;
+    total_tokens: number;
 }
 /**
  *
@@ -802,73 +804,73 @@ export interface CreateFineTuneRequest {
      * @type {string}
      * @memberof CreateFineTuneRequest
      */
-    'training_file': string;
+    training_file: string;
     /**
      * The ID of an uploaded file that contains validation data.  If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. These metrics can be viewed in the [fine-tuning results file](/docs/guides/fine-tuning/analyzing-your-fine-tuned-model). Your train and validation data should be mutually exclusive.  Your dataset must be formatted as a JSONL file, where each validation example is a JSON object with the keys \"prompt\" and \"completion\". Additionally, you must upload your file with the purpose `fine-tune`.  See the [fine-tuning guide](/docs/guides/fine-tuning/creating-training-data) for more details.
      * @type {string}
      * @memberof CreateFineTuneRequest
      */
-    'validation_file'?: string | null;
+    validation_file?: string | null;
     /**
      * The name of the base model to fine-tune. You can select one of \"ada\", \"babbage\", \"curie\", \"davinci\", or a fine-tuned model created after 2022-04-21. To learn more about these models, see the [Models](https://beta.openai.com/docs/models) documentation.
      * @type {string}
      * @memberof CreateFineTuneRequest
      */
-    'model'?: string | null;
+    model?: string | null;
     /**
      * The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
      * @type {number}
      * @memberof CreateFineTuneRequest
      */
-    'n_epochs'?: number | null;
+    n_epochs?: number | null;
     /**
      * The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass.  By default, the batch size will be dynamically configured to be ~0.2% of the number of examples in the training set, capped at 256 - in general, we\'ve found that larger batch sizes tend to work better for larger datasets.
      * @type {number}
      * @memberof CreateFineTuneRequest
      */
-    'batch_size'?: number | null;
+    batch_size?: number | null;
     /**
      * The learning rate multiplier to use for training. The fine-tuning learning rate is the original learning rate used for pretraining multiplied by this value.  By default, the learning rate multiplier is the 0.05, 0.1, or 0.2 depending on final `batch_size` (larger learning rates tend to perform better with larger batch sizes). We recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best results.
      * @type {number}
      * @memberof CreateFineTuneRequest
      */
-    'learning_rate_multiplier'?: number | null;
+    learning_rate_multiplier?: number | null;
     /**
      * The weight to use for loss on the prompt tokens. This controls how much the model tries to learn to generate the prompt (as compared to the completion which always has a weight of 1.0), and can add a stabilizing effect to training when completions are short.  If prompts are extremely long (relative to completions), it may make sense to reduce this weight so as to avoid over-prioritizing learning the prompt.
      * @type {number}
      * @memberof CreateFineTuneRequest
      */
-    'prompt_loss_weight'?: number | null;
+    prompt_loss_weight?: number | null;
     /**
      * If set, we calculate classification-specific metrics such as accuracy and F-1 score using the validation set at the end of every epoch. These metrics can be viewed in the [results file](/docs/guides/fine-tuning/analyzing-your-fine-tuned-model).  In order to compute classification metrics, you must provide a `validation_file`. Additionally, you must specify `classification_n_classes` for multiclass classification or `classification_positive_class` for binary classification.
      * @type {boolean}
      * @memberof CreateFineTuneRequest
      */
-    'compute_classification_metrics'?: boolean | null;
+    compute_classification_metrics?: boolean | null;
     /**
      * The number of classes in a classification task.  This parameter is required for multiclass classification.
      * @type {number}
      * @memberof CreateFineTuneRequest
      */
-    'classification_n_classes'?: number | null;
+    classification_n_classes?: number | null;
     /**
      * The positive class in binary classification.  This parameter is needed to generate precision, recall, and F1 metrics when doing binary classification.
      * @type {string}
      * @memberof CreateFineTuneRequest
      */
-    'classification_positive_class'?: string | null;
+    classification_positive_class?: string | null;
     /**
      * If this is provided, we calculate F-beta scores at the specified beta values. The F-beta score is a generalization of F-1 score. This is only used for binary classification.  With a beta of 1 (i.e. the F-1 score), precision and recall are given the same weight. A larger beta score puts more weight on recall and less on precision. A smaller beta score puts more weight on precision and less on recall.
      * @type {Array<number>}
      * @memberof CreateFineTuneRequest
      */
-    'classification_betas'?: Array<number> | null;
+    classification_betas?: Array<number> | null;
     /**
      * A string of up to 40 characters that will be added to your fine-tuned model name.  For example, a `suffix` of \"custom-model-name\" would produce a model name like `ada:ft-your-org:custom-model-name-2022-02-15-04-21-04`.
      * @type {string}
      * @memberof CreateFineTuneRequest
      */
-    'suffix'?: string | null;
+    suffix?: string | null;
 }
 /**
  *
@@ -881,31 +883,31 @@ export interface CreateImageRequest {
      * @type {string}
      * @memberof CreateImageRequest
      */
-    'prompt': string;
+    prompt: string;
     /**
      * The number of images to generate. Must be between 1 and 10.
      * @type {number}
      * @memberof CreateImageRequest
      */
-    'n'?: number | null;
+    n?: number | null;
     /**
      * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
      * @type {string}
      * @memberof CreateImageRequest
      */
-    'size'?: CreateImageRequestSizeEnum;
+    size?: CreateImageRequestSizeEnum;
     /**
      * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
      * @type {string}
      * @memberof CreateImageRequest
      */
-    'response_format'?: CreateImageRequestResponseFormatEnum;
+    response_format?: CreateImageRequestResponseFormatEnum;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateImageRequest
      */
-    'user'?: string;
+    user?: string;
 }
 export declare const CreateImageRequestSizeEnum: {
     readonly _256x256: "256x256";
@@ -929,13 +931,13 @@ export interface CreateModerationRequest {
      * @type {CreateModerationRequestInput}
      * @memberof CreateModerationRequest
      */
-    'input': CreateModerationRequestInput;
+    input: CreateModerationRequestInput;
     /**
      * Two content moderations models are available: `text-moderation-stable` and `text-moderation-latest`.  The default is `text-moderation-latest` which will be automatically upgraded over time. This ensures you are always using our most accurate model. If you use `text-moderation-stable`, we will provide advanced notice before updating the model. Accuracy of `text-moderation-stable` may be slightly lower than for `text-moderation-latest`.
      * @type {string}
      * @memberof CreateModerationRequest
      */
-    'model'?: string;
+    model?: string;
 }
 /**
  * @type CreateModerationRequestInput
@@ -954,19 +956,19 @@ export interface CreateModerationResponse {
      * @type {string}
      * @memberof CreateModerationResponse
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof CreateModerationResponse
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {Array<CreateModerationResponseResultsInner>}
      * @memberof CreateModerationResponse
      */
-    'results': Array<CreateModerationResponseResultsInner>;
+    results: Array<CreateModerationResponseResultsInner>;
 }
 /**
  *
@@ -979,19 +981,19 @@ export interface CreateModerationResponseResultsInner {
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInner
      */
-    'flagged': boolean;
+    flagged: boolean;
     /**
      *
      * @type {CreateModerationResponseResultsInnerCategories}
      * @memberof CreateModerationResponseResultsInner
      */
-    'categories': CreateModerationResponseResultsInnerCategories;
+    categories: CreateModerationResponseResultsInnerCategories;
     /**
      *
      * @type {CreateModerationResponseResultsInnerCategoryScores}
      * @memberof CreateModerationResponseResultsInner
      */
-    'category_scores': CreateModerationResponseResultsInnerCategoryScores;
+    category_scores: CreateModerationResponseResultsInnerCategoryScores;
 }
 /**
  *
@@ -1004,43 +1006,43 @@ export interface CreateModerationResponseResultsInnerCategories {
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'hate': boolean;
+    hate: boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'hate/threatening': boolean;
+    "hate/threatening": boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'self-harm': boolean;
+    "self-harm": boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'sexual': boolean;
+    sexual: boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'sexual/minors': boolean;
+    "sexual/minors": boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'violence': boolean;
+    violence: boolean;
     /**
      *
      * @type {boolean}
      * @memberof CreateModerationResponseResultsInnerCategories
      */
-    'violence/graphic': boolean;
+    "violence/graphic": boolean;
 }
 /**
  *
@@ -1053,43 +1055,43 @@ export interface CreateModerationResponseResultsInnerCategoryScores {
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'hate': number;
+    hate: number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'hate/threatening': number;
+    "hate/threatening": number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'self-harm': number;
+    "self-harm": number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'sexual': number;
+    sexual: number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'sexual/minors': number;
+    "sexual/minors": number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'violence': number;
+    violence: number;
     /**
      *
      * @type {number}
      * @memberof CreateModerationResponseResultsInnerCategoryScores
      */
-    'violence/graphic': number;
+    "violence/graphic": number;
 }
 /**
  *
@@ -1102,37 +1104,37 @@ export interface CreateSearchRequest {
      * @type {string}
      * @memberof CreateSearchRequest
      */
-    'query': string;
+    query: string;
     /**
      * Up to 200 documents to search over, provided as a list of strings.  The maximum document length (in tokens) is 2034 minus the number of tokens in the query.  You should specify either `documents` or a `file`, but not both.
      * @type {Array<string>}
      * @memberof CreateSearchRequest
      */
-    'documents'?: Array<string> | null;
+    documents?: Array<string> | null;
     /**
      * The ID of an uploaded file that contains documents to search over.  You should specify either `documents` or a `file`, but not both.
      * @type {string}
      * @memberof CreateSearchRequest
      */
-    'file'?: string | null;
+    file?: string | null;
     /**
      * The maximum number of documents to be re-ranked and returned by search.  This flag only takes effect when `file` is set.
      * @type {number}
      * @memberof CreateSearchRequest
      */
-    'max_rerank'?: number | null;
+    max_rerank?: number | null;
     /**
      * A special boolean flag for showing metadata. If set to `true`, each document entry in the returned JSON will contain a \"metadata\" field.  This flag only takes effect when `file` is set.
      * @type {boolean}
      * @memberof CreateSearchRequest
      */
-    'return_metadata'?: boolean | null;
+    return_metadata?: boolean | null;
     /**
      * A unique identifier representing your end-user, which will help OpenAI to monitor and detect abuse. [Learn more](/docs/usage-policies/end-user-ids).
      * @type {string}
      * @memberof CreateSearchRequest
      */
-    'user'?: string;
+    user?: string;
 }
 /**
  *
@@ -1145,19 +1147,19 @@ export interface CreateSearchResponse {
      * @type {string}
      * @memberof CreateSearchResponse
      */
-    'object'?: string;
+    object?: string;
     /**
      *
      * @type {string}
      * @memberof CreateSearchResponse
      */
-    'model'?: string;
+    model?: string;
     /**
      *
      * @type {Array<CreateSearchResponseDataInner>}
      * @memberof CreateSearchResponse
      */
-    'data'?: Array<CreateSearchResponseDataInner>;
+    data?: Array<CreateSearchResponseDataInner>;
 }
 /**
  *
@@ -1170,19 +1172,19 @@ export interface CreateSearchResponseDataInner {
      * @type {string}
      * @memberof CreateSearchResponseDataInner
      */
-    'object'?: string;
+    object?: string;
     /**
      *
      * @type {number}
      * @memberof CreateSearchResponseDataInner
      */
-    'document'?: number;
+    document?: number;
     /**
      *
      * @type {number}
      * @memberof CreateSearchResponseDataInner
      */
-    'score'?: number;
+    score?: number;
 }
 /**
  *
@@ -1195,19 +1197,19 @@ export interface DeleteFileResponse {
      * @type {string}
      * @memberof DeleteFileResponse
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof DeleteFileResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {boolean}
      * @memberof DeleteFileResponse
      */
-    'deleted': boolean;
+    deleted: boolean;
 }
 /**
  *
@@ -1220,19 +1222,19 @@ export interface DeleteModelResponse {
      * @type {string}
      * @memberof DeleteModelResponse
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof DeleteModelResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {boolean}
      * @memberof DeleteModelResponse
      */
-    'deleted': boolean;
+    deleted: boolean;
 }
 /**
  *
@@ -1245,25 +1247,25 @@ export interface Engine {
      * @type {string}
      * @memberof Engine
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof Engine
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof Engine
      */
-    'created': number | null;
+    created: number | null;
     /**
      *
      * @type {boolean}
      * @memberof Engine
      */
-    'ready': boolean;
+    ready: boolean;
 }
 /**
  *
@@ -1276,79 +1278,79 @@ export interface FineTune {
      * @type {string}
      * @memberof FineTune
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof FineTune
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof FineTune
      */
-    'created_at': number;
+    created_at: number;
     /**
      *
      * @type {number}
      * @memberof FineTune
      */
-    'updated_at': number;
+    updated_at: number;
     /**
      *
      * @type {string}
      * @memberof FineTune
      */
-    'model': string;
+    model: string;
     /**
      *
      * @type {string}
      * @memberof FineTune
      */
-    'fine_tuned_model': string | null;
+    fine_tuned_model: string | null;
     /**
      *
      * @type {string}
      * @memberof FineTune
      */
-    'organization_id': string;
+    organization_id: string;
     /**
      *
      * @type {string}
      * @memberof FineTune
      */
-    'status': string;
+    status: string;
     /**
      *
      * @type {object}
      * @memberof FineTune
      */
-    'hyperparams': object;
+    hyperparams: object;
     /**
      *
      * @type {Array<OpenAIFile>}
      * @memberof FineTune
      */
-    'training_files': Array<OpenAIFile>;
+    training_files: Array<OpenAIFile>;
     /**
      *
      * @type {Array<OpenAIFile>}
      * @memberof FineTune
      */
-    'validation_files': Array<OpenAIFile>;
+    validation_files: Array<OpenAIFile>;
     /**
      *
      * @type {Array<OpenAIFile>}
      * @memberof FineTune
      */
-    'result_files': Array<OpenAIFile>;
+    result_files: Array<OpenAIFile>;
     /**
      *
      * @type {Array<FineTuneEvent>}
      * @memberof FineTune
      */
-    'events'?: Array<FineTuneEvent>;
+    events?: Array<FineTuneEvent>;
 }
 /**
  *
@@ -1361,25 +1363,25 @@ export interface FineTuneEvent {
      * @type {string}
      * @memberof FineTuneEvent
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof FineTuneEvent
      */
-    'created_at': number;
+    created_at: number;
     /**
      *
      * @type {string}
      * @memberof FineTuneEvent
      */
-    'level': string;
+    level: string;
     /**
      *
      * @type {string}
      * @memberof FineTuneEvent
      */
-    'message': string;
+    message: string;
 }
 /**
  *
@@ -1392,13 +1394,13 @@ export interface ImagesResponse {
      * @type {number}
      * @memberof ImagesResponse
      */
-    'created': number;
+    created: number;
     /**
      *
      * @type {Array<ImagesResponseDataInner>}
      * @memberof ImagesResponse
      */
-    'data': Array<ImagesResponseDataInner>;
+    data: Array<ImagesResponseDataInner>;
 }
 /**
  *
@@ -1411,13 +1413,13 @@ export interface ImagesResponseDataInner {
      * @type {string}
      * @memberof ImagesResponseDataInner
      */
-    'url'?: string;
+    url?: string;
     /**
      *
      * @type {string}
      * @memberof ImagesResponseDataInner
      */
-    'b64_json'?: string;
+    b64_json?: string;
 }
 /**
  *
@@ -1430,13 +1432,13 @@ export interface ListEnginesResponse {
      * @type {string}
      * @memberof ListEnginesResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<Engine>}
      * @memberof ListEnginesResponse
      */
-    'data': Array<Engine>;
+    data: Array<Engine>;
 }
 /**
  *
@@ -1449,13 +1451,13 @@ export interface ListFilesResponse {
      * @type {string}
      * @memberof ListFilesResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<OpenAIFile>}
      * @memberof ListFilesResponse
      */
-    'data': Array<OpenAIFile>;
+    data: Array<OpenAIFile>;
 }
 /**
  *
@@ -1468,13 +1470,13 @@ export interface ListFineTuneEventsResponse {
      * @type {string}
      * @memberof ListFineTuneEventsResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<FineTuneEvent>}
      * @memberof ListFineTuneEventsResponse
      */
-    'data': Array<FineTuneEvent>;
+    data: Array<FineTuneEvent>;
 }
 /**
  *
@@ -1487,13 +1489,13 @@ export interface ListFineTunesResponse {
      * @type {string}
      * @memberof ListFineTunesResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<FineTune>}
      * @memberof ListFineTunesResponse
      */
-    'data': Array<FineTune>;
+    data: Array<FineTune>;
 }
 /**
  *
@@ -1506,13 +1508,13 @@ export interface ListModelsResponse {
      * @type {string}
      * @memberof ListModelsResponse
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {Array<Model>}
      * @memberof ListModelsResponse
      */
-    'data': Array<Model>;
+    data: Array<Model>;
 }
 /**
  *
@@ -1525,25 +1527,25 @@ export interface Model {
      * @type {string}
      * @memberof Model
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof Model
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof Model
      */
-    'created': number;
+    created: number;
     /**
      *
      * @type {string}
      * @memberof Model
      */
-    'owned_by': string;
+    owned_by: string;
 }
 /**
  *
@@ -1556,49 +1558,49 @@ export interface OpenAIFile {
      * @type {string}
      * @memberof OpenAIFile
      */
-    'id': string;
+    id: string;
     /**
      *
      * @type {string}
      * @memberof OpenAIFile
      */
-    'object': string;
+    object: string;
     /**
      *
      * @type {number}
      * @memberof OpenAIFile
      */
-    'bytes': number;
+    bytes: number;
     /**
      *
      * @type {number}
      * @memberof OpenAIFile
      */
-    'created_at': number;
+    created_at: number;
     /**
      *
      * @type {string}
      * @memberof OpenAIFile
      */
-    'filename': string;
+    filename: string;
     /**
      *
      * @type {string}
      * @memberof OpenAIFile
      */
-    'purpose': string;
+    purpose: string;
     /**
      *
      * @type {string}
      * @memberof OpenAIFile
      */
-    'status'?: string;
+    status?: string;
     /**
      *
      * @type {object}
      * @memberof OpenAIFile
      */
-    'status_details'?: object | null;
+    status_details?: object | null;
 }
 /**
  * OpenAIApi - axios parameter creator
@@ -1658,12 +1660,12 @@ export declare const OpenAIApiAxiosParamCreator: (configuration?: Configuration)
     /**
      *
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFile: (file: File, purpose: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createFile: (file: ReadStream, purpose: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about Fine-tuning](/docs/guides/fine-tuning)
@@ -1683,8 +1685,8 @@ export declare const OpenAIApiAxiosParamCreator: (configuration?: Configuration)
     /**
      *
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-     * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+     * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
      * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -1693,11 +1695,11 @@ export declare const OpenAIApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageEdit: (image: File, mask: File, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createImageEdit: (image: ReadStream, mask: ReadStream, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Creates a variation of a given image.
-     * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -1705,7 +1707,7 @@ export declare const OpenAIApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageVariation: (image: File, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createImageVariation: (image: ReadStream, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Classifies if text violates OpenAI\'s Content Policy
@@ -1878,12 +1880,12 @@ export declare const OpenAIApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFile(file: File, purpose: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OpenAIFile>>;
+    createFile(file: ReadStream, purpose: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OpenAIFile>>;
     /**
      *
      * @summary Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about Fine-tuning](/docs/guides/fine-tuning)
@@ -1903,8 +1905,8 @@ export declare const OpenAIApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-     * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+     * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
      * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -1913,11 +1915,11 @@ export declare const OpenAIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageEdit(image: File, mask: File, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImagesResponse>>;
+    createImageEdit(image: ReadStream, mask: ReadStream, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImagesResponse>>;
     /**
      *
      * @summary Creates a variation of a given image.
-     * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -1925,7 +1927,7 @@ export declare const OpenAIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageVariation(image: File, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImagesResponse>>;
+    createImageVariation(image: ReadStream, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImagesResponse>>;
     /**
      *
      * @summary Classifies if text violates OpenAI\'s Content Policy
@@ -2098,12 +2100,12 @@ export declare const OpenAIApiFactory: (configuration?: Configuration, basePath?
     /**
      *
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFile(file: File, purpose: string, options?: any): AxiosPromise<OpenAIFile>;
+    createFile(file: ReadStream, purpose: string, options?: any): AxiosPromise<OpenAIFile>;
     /**
      *
      * @summary Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about Fine-tuning](/docs/guides/fine-tuning)
@@ -2123,8 +2125,8 @@ export declare const OpenAIApiFactory: (configuration?: Configuration, basePath?
     /**
      *
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-     * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+     * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
      * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -2133,11 +2135,11 @@ export declare const OpenAIApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageEdit(image: File, mask: File, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: any): AxiosPromise<ImagesResponse>;
+    createImageEdit(image: ReadStream, mask: ReadStream, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: any): AxiosPromise<ImagesResponse>;
     /**
      *
      * @summary Creates a variation of a given image.
-     * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -2145,7 +2147,7 @@ export declare const OpenAIApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createImageVariation(image: File, n?: number, size?: string, responseFormat?: string, user?: string, options?: any): AxiosPromise<ImagesResponse>;
+    createImageVariation(image: ReadStream, n?: number, size?: string, responseFormat?: string, user?: string, options?: any): AxiosPromise<ImagesResponse>;
     /**
      *
      * @summary Classifies if text violates OpenAI\'s Content Policy
@@ -2326,13 +2328,13 @@ export declare class OpenAIApi extends BaseAPI {
     /**
      *
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenAIApi
      */
-    createFile(file: File, purpose: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OpenAIFile, any>>;
+    createFile(file: ReadStream, purpose: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OpenAIFile, any>>;
     /**
      *
      * @summary Creates a job that fine-tunes a specified model from a given dataset.  Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.  [Learn more about Fine-tuning](/docs/guides/fine-tuning)
@@ -2354,8 +2356,8 @@ export declare class OpenAIApi extends BaseAPI {
     /**
      *
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-     * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+     * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
      * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -2365,11 +2367,11 @@ export declare class OpenAIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OpenAIApi
      */
-    createImageEdit(image: File, mask: File, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ImagesResponse, any>>;
+    createImageEdit(image: ReadStream, mask: ReadStream, prompt: string, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ImagesResponse, any>>;
     /**
      *
      * @summary Creates a variation of a given image.
-     * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -2378,7 +2380,7 @@ export declare class OpenAIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OpenAIApi
      */
-    createImageVariation(image: File, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ImagesResponse, any>>;
+    createImageVariation(image: ReadStream, n?: number, size?: string, responseFormat?: string, user?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ImagesResponse, any>>;
     /**
      *
      * @summary Classifies if text violates OpenAI\'s Content Policy

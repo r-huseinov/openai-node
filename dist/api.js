@@ -30,13 +30,13 @@ const common_1 = require("./common");
 // @ts-ignore
 const base_1 = require("./base");
 exports.CreateImageRequestSizeEnum = {
-    _256x256: '256x256',
-    _512x512: '512x512',
-    _1024x1024: '1024x1024'
+    _256x256: "256x256",
+    _512x512: "512x512",
+    _1024x1024: "1024x1024",
 };
 exports.CreateImageRequestResponseFormatEnum = {
-    Url: 'url',
-    B64Json: 'b64_json'
+    Url: "url",
+    B64Json: "b64_json",
 };
 /**
  * OpenAIApi - axios parameter creator
@@ -53,16 +53,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         cancelFineTune: (fineTuneId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fineTuneId' is not null or undefined
-            common_1.assertParamExists('cancelFineTune', 'fineTuneId', fineTuneId);
-            const localVarPath = `/fine-tunes/{fine_tune_id}/cancel`
-                .replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
+            common_1.assertParamExists("cancelFineTune", "fineTuneId", fineTuneId);
+            const localVarPath = `/fine-tunes/{fine_tune_id}/cancel`.replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -83,7 +82,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createAnswer: (createAnswerRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createAnswerRequest' is not null or undefined
-            common_1.assertParamExists('createAnswer', 'createAnswerRequest', createAnswerRequest);
+            common_1.assertParamExists("createAnswer", "createAnswerRequest", createAnswerRequest);
             const localVarPath = `/answers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -91,10 +90,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -114,7 +113,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createClassification: (createClassificationRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createClassificationRequest' is not null or undefined
-            common_1.assertParamExists('createClassification', 'createClassificationRequest', createClassificationRequest);
+            common_1.assertParamExists("createClassification", "createClassificationRequest", createClassificationRequest);
             const localVarPath = `/classifications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -122,10 +121,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -144,7 +143,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createCompletion: (createCompletionRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createCompletionRequest' is not null or undefined
-            common_1.assertParamExists('createCompletion', 'createCompletionRequest', createCompletionRequest);
+            common_1.assertParamExists("createCompletion", "createCompletionRequest", createCompletionRequest);
             const localVarPath = `/completions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -152,10 +151,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -174,7 +173,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createEdit: (createEditRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createEditRequest' is not null or undefined
-            common_1.assertParamExists('createEdit', 'createEditRequest', createEditRequest);
+            common_1.assertParamExists("createEdit", "createEditRequest", createEditRequest);
             const localVarPath = `/edits`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -182,10 +181,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -204,7 +203,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createEmbedding: (createEmbeddingRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createEmbeddingRequest' is not null or undefined
-            common_1.assertParamExists('createEmbedding', 'createEmbeddingRequest', createEmbeddingRequest);
+            common_1.assertParamExists("createEmbedding", "createEmbeddingRequest", createEmbeddingRequest);
             const localVarPath = `/embeddings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -212,10 +211,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -228,16 +227,16 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-         * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+         * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
          * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         createFile: (file, purpose, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'file' is not null or undefined
-            common_1.assertParamExists('createFile', 'file', file);
+            common_1.assertParamExists("createFile", "file", file);
             // verify required parameter 'purpose' is not null or undefined
-            common_1.assertParamExists('createFile', 'purpose', purpose);
+            common_1.assertParamExists("createFile", "purpose", purpose);
             const localVarPath = `/files`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -245,17 +244,19 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+            const localVarFormParams = new ((configuration &&
+                configuration.formDataCtor) ||
+                FormData)();
             if (file !== undefined) {
-                localVarFormParams.append('file', file);
+                localVarFormParams.append("file", file);
             }
             if (purpose !== undefined) {
-                localVarFormParams.append('purpose', purpose);
+                localVarFormParams.append("purpose", purpose);
             }
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarHeaderParameter["Content-Type"] = "multipart/form-data";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), localVarFormParams.getHeaders()), headersFromBaseOptions), options.headers);
@@ -274,7 +275,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createFineTune: (createFineTuneRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createFineTuneRequest' is not null or undefined
-            common_1.assertParamExists('createFineTune', 'createFineTuneRequest', createFineTuneRequest);
+            common_1.assertParamExists("createFineTune", "createFineTuneRequest", createFineTuneRequest);
             const localVarPath = `/fine-tunes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -282,10 +283,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -304,7 +305,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createImage: (createImageRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createImageRequest' is not null or undefined
-            common_1.assertParamExists('createImage', 'createImageRequest', createImageRequest);
+            common_1.assertParamExists("createImage", "createImageRequest", createImageRequest);
             const localVarPath = `/images/generations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -312,10 +313,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -328,8 +329,8 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Creates an edited or extended image given an original image and a prompt.
-         * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-         * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+         * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
          * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -340,11 +341,11 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createImageEdit: (image, mask, prompt, n, size, responseFormat, user, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'image' is not null or undefined
-            common_1.assertParamExists('createImageEdit', 'image', image);
+            common_1.assertParamExists("createImageEdit", "image", image);
             // verify required parameter 'mask' is not null or undefined
-            common_1.assertParamExists('createImageEdit', 'mask', mask);
+            common_1.assertParamExists("createImageEdit", "mask", mask);
             // verify required parameter 'prompt' is not null or undefined
-            common_1.assertParamExists('createImageEdit', 'prompt', prompt);
+            common_1.assertParamExists("createImageEdit", "prompt", prompt);
             const localVarPath = `/images/edits`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -352,32 +353,34 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+            const localVarFormParams = new ((configuration &&
+                configuration.formDataCtor) ||
+                FormData)();
             if (image !== undefined) {
-                localVarFormParams.append('image', image);
+                localVarFormParams.append("image", image);
             }
             if (mask !== undefined) {
-                localVarFormParams.append('mask', mask);
+                localVarFormParams.append("mask", mask);
             }
             if (prompt !== undefined) {
-                localVarFormParams.append('prompt', prompt);
+                localVarFormParams.append("prompt", prompt);
             }
             if (n !== undefined) {
-                localVarFormParams.append('n', n);
+                localVarFormParams.append("n", n);
             }
             if (size !== undefined) {
-                localVarFormParams.append('size', size);
+                localVarFormParams.append("size", size);
             }
             if (responseFormat !== undefined) {
-                localVarFormParams.append('response_format', responseFormat);
+                localVarFormParams.append("response_format", responseFormat);
             }
             if (user !== undefined) {
-                localVarFormParams.append('user', user);
+                localVarFormParams.append("user", user);
             }
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarHeaderParameter["Content-Type"] = "multipart/form-data";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), localVarFormParams.getHeaders()), headersFromBaseOptions), options.headers);
@@ -390,7 +393,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Creates a variation of a given image.
-         * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
          * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -400,7 +403,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createImageVariation: (image, n, size, responseFormat, user, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'image' is not null or undefined
-            common_1.assertParamExists('createImageVariation', 'image', image);
+            common_1.assertParamExists("createImageVariation", "image", image);
             const localVarPath = `/images/variations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -408,26 +411,28 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+            const localVarFormParams = new ((configuration &&
+                configuration.formDataCtor) ||
+                FormData)();
             if (image !== undefined) {
-                localVarFormParams.append('image', image);
+                localVarFormParams.append("image", image);
             }
             if (n !== undefined) {
-                localVarFormParams.append('n', n);
+                localVarFormParams.append("n", n);
             }
             if (size !== undefined) {
-                localVarFormParams.append('size', size);
+                localVarFormParams.append("size", size);
             }
             if (responseFormat !== undefined) {
-                localVarFormParams.append('response_format', responseFormat);
+                localVarFormParams.append("response_format", responseFormat);
             }
             if (user !== undefined) {
-                localVarFormParams.append('user', user);
+                localVarFormParams.append("user", user);
             }
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarHeaderParameter["Content-Type"] = "multipart/form-data";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), localVarFormParams.getHeaders()), headersFromBaseOptions), options.headers);
@@ -446,7 +451,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createModeration: (createModerationRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createModerationRequest' is not null or undefined
-            common_1.assertParamExists('createModeration', 'createModerationRequest', createModerationRequest);
+            common_1.assertParamExists("createModeration", "createModerationRequest", createModerationRequest);
             const localVarPath = `/moderations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -454,10 +459,10 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -478,21 +483,20 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         createSearch: (engineId, createSearchRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'engineId' is not null or undefined
-            common_1.assertParamExists('createSearch', 'engineId', engineId);
+            common_1.assertParamExists("createSearch", "engineId", engineId);
             // verify required parameter 'createSearchRequest' is not null or undefined
-            common_1.assertParamExists('createSearch', 'createSearchRequest', createSearchRequest);
-            const localVarPath = `/engines/{engine_id}/search`
-                .replace(`{${"engine_id"}}`, encodeURIComponent(String(engineId)));
+            common_1.assertParamExists("createSearch", "createSearchRequest", createSearchRequest);
+            const localVarPath = `/engines/{engine_id}/search`.replace(`{${"engine_id"}}`, encodeURIComponent(String(engineId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -511,16 +515,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         deleteFile: (fileId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fileId' is not null or undefined
-            common_1.assertParamExists('deleteFile', 'fileId', fileId);
-            const localVarPath = `/files/{file_id}`
-                .replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
+            common_1.assertParamExists("deleteFile", "fileId", fileId);
+            const localVarPath = `/files/{file_id}`.replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -540,16 +543,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         deleteModel: (model, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'model' is not null or undefined
-            common_1.assertParamExists('deleteModel', 'model', model);
-            const localVarPath = `/models/{model}`
-                .replace(`{${"model"}}`, encodeURIComponent(String(model)));
+            common_1.assertParamExists("deleteModel", "model", model);
+            const localVarPath = `/models/{model}`.replace(`{${"model"}}`, encodeURIComponent(String(model)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -569,16 +571,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         downloadFile: (fileId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fileId' is not null or undefined
-            common_1.assertParamExists('downloadFile', 'fileId', fileId);
-            const localVarPath = `/files/{file_id}/content`
-                .replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
+            common_1.assertParamExists("downloadFile", "fileId", fileId);
+            const localVarPath = `/files/{file_id}/content`.replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -604,7 +605,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -629,7 +630,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -650,20 +651,19 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         listFineTuneEvents: (fineTuneId, stream, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fineTuneId' is not null or undefined
-            common_1.assertParamExists('listFineTuneEvents', 'fineTuneId', fineTuneId);
-            const localVarPath = `/fine-tunes/{fine_tune_id}/events`
-                .replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
+            common_1.assertParamExists("listFineTuneEvents", "fineTuneId", fineTuneId);
+            const localVarPath = `/fine-tunes/{fine_tune_id}/events`.replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             if (stream !== undefined) {
-                localVarQueryParameter['stream'] = stream;
+                localVarQueryParameter["stream"] = stream;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -687,7 +687,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -712,7 +712,7 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -733,16 +733,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         retrieveEngine: (engineId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'engineId' is not null or undefined
-            common_1.assertParamExists('retrieveEngine', 'engineId', engineId);
-            const localVarPath = `/engines/{engine_id}`
-                .replace(`{${"engine_id"}}`, encodeURIComponent(String(engineId)));
+            common_1.assertParamExists("retrieveEngine", "engineId", engineId);
+            const localVarPath = `/engines/{engine_id}`.replace(`{${"engine_id"}}`, encodeURIComponent(String(engineId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -762,16 +761,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         retrieveFile: (fileId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fileId' is not null or undefined
-            common_1.assertParamExists('retrieveFile', 'fileId', fileId);
-            const localVarPath = `/files/{file_id}`
-                .replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
+            common_1.assertParamExists("retrieveFile", "fileId", fileId);
+            const localVarPath = `/files/{file_id}`.replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -791,16 +789,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         retrieveFineTune: (fineTuneId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'fineTuneId' is not null or undefined
-            common_1.assertParamExists('retrieveFineTune', 'fineTuneId', fineTuneId);
-            const localVarPath = `/fine-tunes/{fine_tune_id}`
-                .replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
+            common_1.assertParamExists("retrieveFineTune", "fineTuneId", fineTuneId);
+            const localVarPath = `/fine-tunes/{fine_tune_id}`.replace(`{${"fine_tune_id"}}`, encodeURIComponent(String(fineTuneId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -820,16 +817,15 @@ exports.OpenAIApiAxiosParamCreator = function (configuration) {
          */
         retrieveModel: (model, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'model' is not null or undefined
-            common_1.assertParamExists('retrieveModel', 'model', model);
-            const localVarPath = `/models/{model}`
-                .replace(`{${"model"}}`, encodeURIComponent(String(model)));
+            common_1.assertParamExists("retrieveModel", "model", model);
+            const localVarPath = `/models/{model}`.replace(`{${"model"}}`, encodeURIComponent(String(model)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -932,7 +928,7 @@ exports.OpenAIApiFp = function (configuration) {
         /**
          *
          * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-         * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+         * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
          * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -972,8 +968,8 @@ exports.OpenAIApiFp = function (configuration) {
         /**
          *
          * @summary Creates an edited or extended image given an original image and a prompt.
-         * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-         * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+         * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
          * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -991,7 +987,7 @@ exports.OpenAIApiFp = function (configuration) {
         /**
          *
          * @summary Creates a variation of a given image.
-         * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
          * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -1205,7 +1201,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         cancelFineTune(fineTuneId, options) {
-            return localVarFp.cancelFineTune(fineTuneId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .cancelFineTune(fineTuneId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1216,7 +1214,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createAnswer(createAnswerRequest, options) {
-            return localVarFp.createAnswer(createAnswerRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createAnswer(createAnswerRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1227,7 +1227,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createClassification(createClassificationRequest, options) {
-            return localVarFp.createClassification(createClassificationRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createClassification(createClassificationRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1237,7 +1239,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createCompletion(createCompletionRequest, options) {
-            return localVarFp.createCompletion(createCompletionRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createCompletion(createCompletionRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1247,7 +1251,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createEdit(createEditRequest, options) {
-            return localVarFp.createEdit(createEditRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createEdit(createEditRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1257,18 +1263,22 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createEmbedding(createEmbeddingRequest, options) {
-            return localVarFp.createEmbedding(createEmbeddingRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createEmbedding(createEmbeddingRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
          * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-         * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+         * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
          * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         createFile(file, purpose, options) {
-            return localVarFp.createFile(file, purpose, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createFile(file, purpose, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1278,7 +1288,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createFineTune(createFineTuneRequest, options) {
-            return localVarFp.createFineTune(createFineTuneRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createFineTune(createFineTuneRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1288,13 +1300,15 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createImage(createImageRequest, options) {
-            return localVarFp.createImage(createImageRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createImage(createImageRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
          * @summary Creates an edited or extended image given an original image and a prompt.
-         * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-         * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+         * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
          * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -1304,12 +1318,14 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createImageEdit(image, mask, prompt, n, size, responseFormat, user, options) {
-            return localVarFp.createImageEdit(image, mask, prompt, n, size, responseFormat, user, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createImageEdit(image, mask, prompt, n, size, responseFormat, user, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
          * @summary Creates a variation of a given image.
-         * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+         * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
          * @param {number} [n] The number of images to generate. Must be between 1 and 10.
          * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
          * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -1318,7 +1334,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createImageVariation(image, n, size, responseFormat, user, options) {
-            return localVarFp.createImageVariation(image, n, size, responseFormat, user, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createImageVariation(image, n, size, responseFormat, user, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1328,7 +1346,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createModeration(createModerationRequest, options) {
-            return localVarFp.createModeration(createModerationRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createModeration(createModerationRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1340,7 +1360,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createSearch(engineId, createSearchRequest, options) {
-            return localVarFp.createSearch(engineId, createSearchRequest, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .createSearch(engineId, createSearchRequest, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1350,7 +1372,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteFile(fileId, options) {
-            return localVarFp.deleteFile(fileId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .deleteFile(fileId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1360,7 +1384,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteModel(model, options) {
-            return localVarFp.deleteModel(model, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .deleteModel(model, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1370,7 +1396,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         downloadFile(fileId, options) {
-            return localVarFp.downloadFile(fileId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .downloadFile(fileId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1380,7 +1408,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listEngines(options) {
-            return localVarFp.listEngines(options).then((request) => request(axios, basePath));
+            return localVarFp
+                .listEngines(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1389,7 +1419,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listFiles(options) {
-            return localVarFp.listFiles(options).then((request) => request(axios, basePath));
+            return localVarFp
+                .listFiles(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1400,7 +1432,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listFineTuneEvents(fineTuneId, stream, options) {
-            return localVarFp.listFineTuneEvents(fineTuneId, stream, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .listFineTuneEvents(fineTuneId, stream, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1409,7 +1443,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listFineTunes(options) {
-            return localVarFp.listFineTunes(options).then((request) => request(axios, basePath));
+            return localVarFp
+                .listFineTunes(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1418,7 +1454,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listModels(options) {
-            return localVarFp.listModels(options).then((request) => request(axios, basePath));
+            return localVarFp
+                .listModels(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1429,7 +1467,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         retrieveEngine(engineId, options) {
-            return localVarFp.retrieveEngine(engineId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .retrieveEngine(engineId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1439,7 +1479,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         retrieveFile(fileId, options) {
-            return localVarFp.retrieveFile(fileId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .retrieveFile(fileId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1449,7 +1491,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         retrieveFineTune(fineTuneId, options) {
-            return localVarFp.retrieveFineTune(fineTuneId, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .retrieveFineTune(fineTuneId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1459,7 +1503,9 @@ exports.OpenAIApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         retrieveModel(model, options) {
-            return localVarFp.retrieveModel(model, options).then((request) => request(axios, basePath));
+            return localVarFp
+                .retrieveModel(model, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -1479,7 +1525,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     cancelFineTune(fineTuneId, options) {
-        return exports.OpenAIApiFp(this.configuration).cancelFineTune(fineTuneId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .cancelFineTune(fineTuneId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1491,7 +1539,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createAnswer(createAnswerRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createAnswer(createAnswerRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createAnswer(createAnswerRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1503,7 +1553,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createClassification(createClassificationRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createClassification(createClassificationRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createClassification(createClassificationRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1514,7 +1566,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createCompletion(createCompletionRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createCompletion(createCompletionRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createCompletion(createCompletionRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1525,7 +1579,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createEdit(createEditRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createEdit(createEditRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createEdit(createEditRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1536,19 +1592,23 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createEmbedding(createEmbeddingRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createEmbedding(createEmbeddingRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createEmbedding(createEmbeddingRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @param {File} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * @param {ReadStream} file Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param {string} purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OpenAIApi
      */
     createFile(file, purpose, options) {
-        return exports.OpenAIApiFp(this.configuration).createFile(file, purpose, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createFile(file, purpose, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1559,7 +1619,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createFineTune(createFineTuneRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createFineTune(createFineTuneRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createFineTune(createFineTuneRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1570,13 +1632,15 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createImage(createImageRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createImage(createImageRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createImage(createImageRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @param {File} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
-     * @param {File} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
+     * @param {ReadStream} image The image to edit. Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} mask An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where &#x60;image&#x60; should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as &#x60;image&#x60;.
      * @param {string} prompt A text description of the desired image(s). The maximum length is 1000 characters.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
@@ -1587,12 +1651,14 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createImageEdit(image, mask, prompt, n, size, responseFormat, user, options) {
-        return exports.OpenAIApiFp(this.configuration).createImageEdit(image, mask, prompt, n, size, responseFormat, user, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createImageEdit(image, mask, prompt, n, size, responseFormat, user, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
      * @summary Creates a variation of a given image.
-     * @param {File} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
+     * @param {ReadStream} image The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      * @param {number} [n] The number of images to generate. Must be between 1 and 10.
      * @param {string} [size] The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param {string} [responseFormat] The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
@@ -1602,7 +1668,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createImageVariation(image, n, size, responseFormat, user, options) {
-        return exports.OpenAIApiFp(this.configuration).createImageVariation(image, n, size, responseFormat, user, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createImageVariation(image, n, size, responseFormat, user, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1613,7 +1681,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createModeration(createModerationRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createModeration(createModerationRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createModeration(createModerationRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1626,7 +1696,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     createSearch(engineId, createSearchRequest, options) {
-        return exports.OpenAIApiFp(this.configuration).createSearch(engineId, createSearchRequest, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .createSearch(engineId, createSearchRequest, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1637,7 +1709,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     deleteFile(fileId, options) {
-        return exports.OpenAIApiFp(this.configuration).deleteFile(fileId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .deleteFile(fileId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1648,7 +1722,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     deleteModel(model, options) {
-        return exports.OpenAIApiFp(this.configuration).deleteModel(model, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .deleteModel(model, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1659,7 +1735,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     downloadFile(fileId, options) {
-        return exports.OpenAIApiFp(this.configuration).downloadFile(fileId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .downloadFile(fileId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1670,7 +1748,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     listEngines(options) {
-        return exports.OpenAIApiFp(this.configuration).listEngines(options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .listEngines(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1680,7 +1760,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     listFiles(options) {
-        return exports.OpenAIApiFp(this.configuration).listFiles(options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .listFiles(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1692,7 +1774,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     listFineTuneEvents(fineTuneId, stream, options) {
-        return exports.OpenAIApiFp(this.configuration).listFineTuneEvents(fineTuneId, stream, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .listFineTuneEvents(fineTuneId, stream, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1702,7 +1786,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     listFineTunes(options) {
-        return exports.OpenAIApiFp(this.configuration).listFineTunes(options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .listFineTunes(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1712,7 +1798,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     listModels(options) {
-        return exports.OpenAIApiFp(this.configuration).listModels(options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .listModels(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1724,7 +1812,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     retrieveEngine(engineId, options) {
-        return exports.OpenAIApiFp(this.configuration).retrieveEngine(engineId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .retrieveEngine(engineId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1735,7 +1825,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     retrieveFile(fileId, options) {
-        return exports.OpenAIApiFp(this.configuration).retrieveFile(fileId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .retrieveFile(fileId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1746,7 +1838,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     retrieveFineTune(fineTuneId, options) {
-        return exports.OpenAIApiFp(this.configuration).retrieveFineTune(fineTuneId, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .retrieveFineTune(fineTuneId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1757,7 +1851,9 @@ class OpenAIApi extends base_1.BaseAPI {
      * @memberof OpenAIApi
      */
     retrieveModel(model, options) {
-        return exports.OpenAIApiFp(this.configuration).retrieveModel(model, options).then((request) => request(this.axios, this.basePath));
+        return exports.OpenAIApiFp(this.configuration)
+            .retrieveModel(model, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.OpenAIApi = OpenAIApi;

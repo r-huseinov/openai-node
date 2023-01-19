@@ -21,11 +21,11 @@
     "build": "tsc --outDir dist/"
   },
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "form-data": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^12.11.5",
+    "@types/node": "^12.20.55",
     "typescript": "^3.6.4"
   }
 }
